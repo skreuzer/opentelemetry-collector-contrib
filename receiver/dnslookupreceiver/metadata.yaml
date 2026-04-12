@@ -21,6 +21,9 @@ attributes:
   dns.response.code:
     description: The DNS response code (e.g. NOERROR, NXDOMAIN, SERVFAIL)
     type: string
+  dns.soa.serial:
+    description: The serial number from a SOA record response
+    type: string
 
 metrics:
   dns.lookup.duration:
@@ -31,7 +34,7 @@ metrics:
     unit: s
     gauge:
       value_type: double
-    attributes: [dns.question.name, dns.question.type, dns.server.address, dns.response.code]
+    attributes: [dns.question.name, dns.question.type, dns.server.address, dns.response.code, dns.soa.serial]
   dns.lookup.answers_count:
     enabled: true
     description: Number of answers returned by the DNS lookup
@@ -40,4 +43,4 @@ metrics:
     unit: "{answers}"
     gauge:
       value_type: int
-    attributes: [dns.question.name, dns.question.type, dns.server.address, dns.response.code]
+    attributes: [dns.question.name, dns.question.type, dns.server.address, dns.response.code, dns.soa.serial]

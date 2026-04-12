@@ -57,7 +57,7 @@ func NewMetricsBuilder(mbc MetricsBuilderConfig, settings receiver.Settings) *Me
 	return mb
 }
 
-func (mb *MetricsBuilder) RecordDnsLookupDurationDataPoint(ts pcommon.Timestamp, val float64, dnsQuestionName string, dnsQuestionType string, dnsServerAddress string, dnsResponseCode string) {
+func (mb *MetricsBuilder) RecordDnsLookupDurationDataPoint(ts pcommon.Timestamp, val float64, dnsQuestionName string, dnsQuestionType string, dnsServerAddress string, dnsResponseCode string, soaSerial string) {
 	if !mb.config.Metrics.DnsLookupDuration.Enabled {
 		return
 	}
@@ -73,9 +73,12 @@ func (mb *MetricsBuilder) RecordDnsLookupDurationDataPoint(ts pcommon.Timestamp,
 	pt.Attributes().PutStr("dns.question.type", dnsQuestionType)
 	pt.Attributes().PutStr("dns.server.address", dnsServerAddress)
 	pt.Attributes().PutStr("dns.response.code", dnsResponseCode)
+	if soaSerial != "" {
+		pt.Attributes().PutStr("dns.soa.serial", soaSerial)
+	}
 }
 
-func (mb *MetricsBuilder) RecordDnsLookupAnswersCountDataPoint(ts pcommon.Timestamp, val int64, dnsQuestionName string, dnsQuestionType string, dnsServerAddress string, dnsResponseCode string) {
+func (mb *MetricsBuilder) RecordDnsLookupAnswersCountDataPoint(ts pcommon.Timestamp, val int64, dnsQuestionName string, dnsQuestionType string, dnsServerAddress string, dnsResponseCode string, soaSerial string) {
 	if !mb.config.Metrics.DnsLookupAnswersCount.Enabled {
 		return
 	}
@@ -91,6 +94,9 @@ func (mb *MetricsBuilder) RecordDnsLookupAnswersCountDataPoint(ts pcommon.Timest
 	pt.Attributes().PutStr("dns.question.type", dnsQuestionType)
 	pt.Attributes().PutStr("dns.server.address", dnsServerAddress)
 	pt.Attributes().PutStr("dns.response.code", dnsResponseCode)
+	if soaSerial != "" {
+		pt.Attributes().PutStr("dns.soa.serial", soaSerial)
+	}
 }
 
 func (mb *MetricsBuilder) Emit() pmetric.Metrics {

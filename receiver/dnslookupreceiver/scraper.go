@@ -6,6 +6,7 @@ package dnslookupreceiver // import "github.com/open-telemetry/opentelemetry-col
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/miekg/dns"
@@ -94,6 +95,7 @@ func (s *dnsLookupScraper) performLookup(now pcommon.Timestamp, hostname, record
 
 	responseCode := "ERROR"
 	var answersCount int64
+	var soaSerial string
 
 	if err != nil {
 		s.settings.Logger.Warn("DNS lookup failed",
@@ -103,10 +105,22 @@ func (s *dnsLookupScraper) performLookup(now pcommon.Timestamp, hostname, record
 	} else {
 		responseCode = dns.RcodeToString[r.Rcode]
 		answersCount = int64(len(r.Answer))
+		if qtype == dns.TypeSOA {
+			soaSerial = extractSOASerial(r)
+		}
 	}
 
 	durationSeconds := float64(elapsed) / float64(time.Second)
 
-	s.mb.RecordDnsLookupDurationDataPoint(now, durationSeconds, hostname, recordType, endpoint, responseCode)
-	s.mb.RecordDnsLookupAnswersCountDataPoint(now, answersCount, hostname, recordType, endpoint, responseCode)
+	s.mb.RecordDnsLookupDurationDataPoint(now, durationSeconds, hostname, recordType, endpoint, responseCode, soaSerial)
+	s.mb.RecordDnsLookupAnswersCountDataPoint(now, answersCount, hostname, recordType, endpoint, responseCode, soaSerial)
+}
+
+func extractSOASerial(r *dns.Msg) string {
+	for _, ans := range r.Answer {
+		if soa, ok := ans.(*dns.SOA); ok {
+			return strconv.FormatUint(uint64(soa.Serial), 10)
+		}
+	}
+	return ""
 }

@@ -57,5 +57,7 @@ The following metrics are emitted by this receiver:
 
 | Metric | Type | Description | Attributes |
 |--------|------|-------------|------------|
-| `dns.lookup.duration` | Gauge | Duration of the DNS lookup in seconds | `dns.question.name`, `dns.question.type`, `dns.server.address`, `dns.response.code` |
-| `dns.lookup.answers_count` | Gauge | Number of answers returned by the DNS lookup | `dns.question.name`, `dns.question.type`, `dns.server.address`, `dns.response.code` |
+| `dns.lookup.duration` | Gauge | Duration of the DNS lookup in seconds | `dns.question.name`, `dns.question.type`, `dns.server.address`, `dns.response.code`, `dns.soa.serial` |
+| `dns.lookup.answers_count` | Gauge | Number of answers returned by the DNS lookup | `dns.question.name`, `dns.question.type`, `dns.server.address`, `dns.response.code`, `dns.soa.serial` |
+
+The `dns.soa.serial` attribute is only populated when querying `SOA` record types and contains the serial number from the SOA answer.
