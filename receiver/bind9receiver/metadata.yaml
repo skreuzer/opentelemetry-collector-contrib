@@ -1,0 +1,293 @@
+type: bind9
+status:
+  class: receiver
+  stability:
+    development: [metrics]
+  distributions: [contrib]
+  codeowners:
+    active: [skreuzer]
+
+attributes:
+  context.name:
+    description: The memory context name
+    type: string
+  dns.message.direction:
+    description: The direction of DNS messages (received for requests, sent for responses)
+    type: string
+    enum:
+      - received
+      - sent
+  dns.message.size.bucket:
+    description: The DNS message size bucket in bytes (e.g. 32-47, 48-63)
+    type: string
+  network.transport:
+    description: The network transport protocol
+    type: string
+    enum:
+      - udp
+      - tcp
+  network.type:
+    description: The network IP version
+    type: string
+    enum:
+      - ipv4
+      - ipv6
+  opcode:
+    description: The DNS opcode
+    type: string
+    enum:
+      - QUERY
+      - IQUERY
+      - STATUS
+      - NOTIFY
+      - UPDATE
+  qtype:
+    description: The DNS query type
+    type: string
+  rcode:
+    description: The DNS response code
+    type: string
+    enum:
+      - NOERROR
+      - FORMERR
+      - SERVFAIL
+      - NXDOMAIN
+      - NOTIMP
+      - REFUSED
+      - YXDOMAIN
+      - YXRRSET
+      - NXRRSET
+      - NOTAUTH
+      - NOTZONE
+      - BADVERS
+      - BADCOOKIE
+  socket.stat:
+    description: The socket statistic name (e.g. UDP4Open, TCP4Active)
+    type: string
+  view:
+    description: The BIND9 view name
+    type: string
+
+metrics:
+  bind9.memory.total:
+    enabled: true
+    description: Total memory allocated by context name
+    stability: development
+    unit: By
+    gauge:
+      value_type: int
+    attributes: [context.name]
+  bind9.memory.usage:
+    enabled: true
+    description: Memory usage by context name
+    stability: development
+    unit: By
+    gauge:
+      value_type: int
+    attributes: [context.name]
+  bind9.network.socket.accept:
+    enabled: true
+    description: Total number of socket accept calls, by socket statistic name
+    stability: development
+    unit: sockets
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.accept.failures:
+    enabled: true
+    description: Total number of socket accept failures, by socket statistic name
+    stability: development
+    unit: failures
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.active:
+    enabled: true
+    description: Number of currently active sockets, by socket statistic name
+    stability: development
+    unit: sockets
+    gauge:
+      value_type: int
+    attributes: [socket.stat]
+  bind9.network.socket.bind.failures:
+    enabled: true
+    description: Total number of socket bind failures, by socket statistic name
+    stability: development
+    unit: failures
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.closed:
+    enabled: true
+    description: Total number of sockets closed, by socket statistic name
+    stability: development
+    unit: sockets
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.connection:
+    enabled: true
+    description: Total number of socket connections established, by socket statistic name
+    stability: development
+    unit: sockets
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.connection.failures:
+    enabled: true
+    description: Total number of socket connection failures, by socket statistic name
+    stability: development
+    unit: failures
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.open.failures:
+    enabled: true
+    description: Total number of socket open failures, by socket statistic name
+    stability: development
+    unit: failures
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.opened:
+    enabled: true
+    description: Total number of sockets opened, by socket statistic name
+    stability: development
+    unit: sockets
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.receive.errors:
+    enabled: true
+    description: Total number of socket receive errors, by socket statistic name
+    stability: development
+    unit: errors
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.socket.send.errors:
+    enabled: true
+    description: Total number of socket send errors, by socket statistic name
+    stability: development
+    unit: errors
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [socket.stat]
+  bind9.network.traffic:
+    enabled: true
+    description: DNS message count by size bucket, protocol, direction, and IP version
+    stability: development
+    unit: messages
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [network.transport, network.type, dns.message.direction, dns.message.size.bucket]
+  bind9.resolver.cache.entries:
+    enabled: true
+    description: Number of entries in the resolver cache, by view
+    stability: development
+    unit: entries
+    gauge:
+      value_type: int
+    attributes: [view]
+  bind9.resolver.cache.hits:
+    enabled: true
+    description: Number of cache hits in the resolver, by view
+    stability: development
+    unit: hits
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [view]
+  bind9.resolver.cache.misses:
+    enabled: true
+    description: Number of cache misses in the resolver, by view
+    stability: development
+    unit: misses
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [view]
+  bind9.resolver.queries:
+    enabled: true
+    description: Number of outgoing queries made by the resolver, by view and query type
+    stability: development
+    unit: queries
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [view, qtype]
+  bind9.resolver.responses:
+    enabled: true
+    description: Number of responses received by the resolver, by view
+    stability: development
+    unit: responses
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [view]
+  bind9.resolver.validation.attempt:
+    enabled: true
+    description: Number of DNSSEC validation attempts by the resolver, by view
+    stability: development
+    unit: validations
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [view]
+  bind9.resolver.validation.success:
+    enabled: true
+    description: Number of successful DNSSEC validations by the resolver, by view
+    stability: development
+    unit: validations
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [view]
+  bind9.server.queries:
+    enabled: true
+    description: Total number of queries received by the server, by opcode
+    stability: development
+    unit: queries
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [opcode]
+  bind9.server.responses:
+    enabled: true
+    description: Total number of responses sent by the server, by rcode
+    stability: development
+    unit: responses
+    sum:
+      value_type: int
+      monotonic: true
+      aggregation_temporality: cumulative
+    attributes: [rcode]

@@ -1,0 +1,97 @@
+default:
+all_set:
+  metrics:
+    bind9.memory.total:
+      enabled: true
+    bind9.memory.usage:
+      enabled: true
+    bind9.network.socket.accept:
+      enabled: true
+    bind9.network.socket.accept.failures:
+      enabled: true
+    bind9.network.socket.active:
+      enabled: true
+    bind9.network.socket.bind.failures:
+      enabled: true
+    bind9.network.socket.closed:
+      enabled: true
+    bind9.network.socket.connection:
+      enabled: true
+    bind9.network.socket.connection.failures:
+      enabled: true
+    bind9.network.socket.open.failures:
+      enabled: true
+    bind9.network.socket.opened:
+      enabled: true
+    bind9.network.socket.receive.errors:
+      enabled: true
+    bind9.network.socket.send.errors:
+      enabled: true
+    bind9.network.traffic:
+      enabled: true
+    bind9.resolver.cache.entries:
+      enabled: true
+    bind9.resolver.cache.hits:
+      enabled: true
+    bind9.resolver.cache.misses:
+      enabled: true
+    bind9.resolver.queries:
+      enabled: true
+    bind9.resolver.responses:
+      enabled: true
+    bind9.resolver.validation.attempt:
+      enabled: true
+    bind9.resolver.validation.success:
+      enabled: true
+    bind9.server.queries:
+      enabled: true
+    bind9.server.responses:
+      enabled: true
+none_set:
+  metrics:
+    bind9.memory.total:
+      enabled: false
+    bind9.memory.usage:
+      enabled: false
+    bind9.network.socket.accept:
+      enabled: false
+    bind9.network.socket.accept.failures:
+      enabled: false
+    bind9.network.socket.active:
+      enabled: false
+    bind9.network.socket.bind.failures:
+      enabled: false
+    bind9.network.socket.closed:
+      enabled: false
+    bind9.network.socket.connection:
+      enabled: false
+    bind9.network.socket.connection.failures:
+      enabled: false
+    bind9.network.socket.open.failures:
+      enabled: false
+    bind9.network.socket.opened:
+      enabled: false
+    bind9.network.socket.receive.errors:
+      enabled: false
+    bind9.network.socket.send.errors:
+      enabled: false
+    bind9.network.traffic:
+      enabled: false
+    bind9.resolver.cache.entries:
+      enabled: false
+    bind9.resolver.cache.hits:
+      enabled: false
+    bind9.resolver.cache.misses:
+      enabled: false
+    bind9.resolver.queries:
+      enabled: false
+    bind9.resolver.responses:
+      enabled: false
+    bind9.resolver.validation.attempt:
+      enabled: false
+    bind9.resolver.validation.success:
+      enabled: false
+    bind9.server.queries:
+      enabled: false
+    bind9.server.responses:
+      enabled: false

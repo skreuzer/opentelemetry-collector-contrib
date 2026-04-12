@@ -1,0 +1,585 @@
+resourceMetrics:
+  - resource:
+      attributes:
+        - key: service.version
+          value:
+            stringValue: 9.18.39
+    scopeMetrics:
+      - metrics:
+          - description: Total memory allocated by context name
+            gauge:
+              dataPoints:
+                - asInt: "48545588"
+                  attributes:
+                    - key: context.name
+                      value:
+                        stringValue: main
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "2788126"
+                  attributes:
+                    - key: context.name
+                      value:
+                        stringValue: zonemgr-pool
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+            name: bind9.memory.total
+            unit: By
+          - description: Memory usage by context name
+            gauge:
+              dataPoints:
+                - asInt: "42112185"
+                  attributes:
+                    - key: context.name
+                      value:
+                        stringValue: main
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "147580"
+                  attributes:
+                    - key: context.name
+                      value:
+                        stringValue: zonemgr-pool
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+            name: bind9.memory.usage
+            unit: By
+          - description: Total number of socket accept calls, by socket statistic name
+            name: bind9.network.socket.accept
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "16"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: TCP4Accept
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: sockets
+          - description: Number of currently active sockets, by socket statistic name
+            gauge:
+              dataPoints:
+                - asInt: "40"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: TCP4Active
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "45"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: TCP6Active
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "18"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP4Active
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "36"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP6Active
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+            name: bind9.network.socket.active
+            unit: sockets
+          - description: Total number of sockets closed, by socket statistic name
+            name: bind9.network.socket.closed
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "12"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: TCP4Close
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "26"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP4Close
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "26"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP6Close
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: sockets
+          - description: Total number of socket connections established, by socket statistic name
+            name: bind9.network.socket.connection
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "10"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP4Conn
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: sockets
+          - description: Total number of socket connection failures, by socket statistic name
+            name: bind9.network.socket.connection.failures
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "26"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP4ConnFail
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "26"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP6ConnFail
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: failures
+          - description: Total number of socket open failures, by socket statistic name
+            name: bind9.network.socket.open.failures
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "1"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP4OpenFail
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: failures
+          - description: Total number of sockets opened, by socket statistic name
+            name: bind9.network.socket.opened
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "32"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: TCP4Open
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "40"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: TCP6Open
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "42"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP4Open
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "58"
+                  attributes:
+                    - key: socket.stat
+                      value:
+                        stringValue: UDP6Open
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: sockets
+          - description: DNS message count by size bucket, protocol, direction, and IP version
+            name: bind9.network.traffic
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "10"
+                  attributes:
+                    - key: dns.message.direction
+                      value:
+                        stringValue: received
+                    - key: dns.message.size.bucket
+                      value:
+                        stringValue: 32-47
+                    - key: network.transport
+                      value:
+                        stringValue: udp
+                    - key: network.type
+                      value:
+                        stringValue: ipv4
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "1"
+                  attributes:
+                    - key: dns.message.direction
+                      value:
+                        stringValue: sent
+                    - key: dns.message.size.bucket
+                      value:
+                        stringValue: 32-47
+                    - key: network.transport
+                      value:
+                        stringValue: udp
+                    - key: network.type
+                      value:
+                        stringValue: ipv4
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "2"
+                  attributes:
+                    - key: dns.message.direction
+                      value:
+                        stringValue: sent
+                    - key: dns.message.size.bucket
+                      value:
+                        stringValue: 48-63
+                    - key: network.transport
+                      value:
+                        stringValue: udp
+                    - key: network.type
+                      value:
+                        stringValue: ipv4
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "1"
+                  attributes:
+                    - key: dns.message.direction
+                      value:
+                        stringValue: sent
+                    - key: dns.message.size.bucket
+                      value:
+                        stringValue: 64-79
+                    - key: network.transport
+                      value:
+                        stringValue: udp
+                    - key: network.type
+                      value:
+                        stringValue: ipv4
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "6"
+                  attributes:
+                    - key: dns.message.direction
+                      value:
+                        stringValue: sent
+                    - key: dns.message.size.bucket
+                      value:
+                        stringValue: 80-95
+                    - key: network.transport
+                      value:
+                        stringValue: udp
+                    - key: network.type
+                      value:
+                        stringValue: ipv4
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: messages
+          - description: Number of entries in the resolver cache, by view
+            gauge:
+              dataPoints:
+                - asInt: "0"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _bind
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "30"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+            name: bind9.resolver.cache.entries
+            unit: entries
+          - description: Number of cache hits in the resolver, by view
+            name: bind9.resolver.cache.hits
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "0"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _bind
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "200"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: hits
+          - description: Number of cache misses in the resolver, by view
+            name: bind9.resolver.cache.misses
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "0"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _bind
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "50"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: misses
+          - description: Number of outgoing queries made by the resolver, by view and query type
+            name: bind9.resolver.queries
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "20"
+                  attributes:
+                    - key: qtype
+                      value:
+                        stringValue: A
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "15"
+                  attributes:
+                    - key: qtype
+                      value:
+                        stringValue: AAAA
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "3"
+                  attributes:
+                    - key: qtype
+                      value:
+                        stringValue: DNSKEY
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "5"
+                  attributes:
+                    - key: qtype
+                      value:
+                        stringValue: NS
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: queries
+          - description: Number of responses received by the resolver, by view
+            name: bind9.resolver.responses
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "50"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: responses
+          - description: Number of DNSSEC validation attempts by the resolver, by view
+            name: bind9.resolver.validation.attempt
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "10"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: validations
+          - description: Number of successful DNSSEC validations by the resolver, by view
+            name: bind9.resolver.validation.success
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "8"
+                  attributes:
+                    - key: view
+                      value:
+                        stringValue: _default
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: validations
+          - description: Total number of queries received by the server, by opcode
+            name: bind9.server.queries
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "0"
+                  attributes:
+                    - key: opcode
+                      value:
+                        stringValue: IQUERY
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "5"
+                  attributes:
+                    - key: opcode
+                      value:
+                        stringValue: NOTIFY
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "100"
+                  attributes:
+                    - key: opcode
+                      value:
+                        stringValue: QUERY
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: opcode
+                      value:
+                        stringValue: STATUS
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: opcode
+                      value:
+                        stringValue: UPDATE
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: queries
+          - description: Total number of responses sent by the server, by rcode
+            name: bind9.server.responses
+            sum:
+              aggregationTemporality: 2
+              dataPoints:
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: BADCOOKIE
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: BADVERS
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: FORMERR
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "95"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: NOERROR
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: NOTAUTH
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: NOTIMP
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: NOTZONE
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "3"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: NXDOMAIN
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: NXRRSET
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: REFUSED
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "2"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: SERVFAIL
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: YXDOMAIN
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+                - asInt: "0"
+                  attributes:
+                    - key: rcode
+                      value:
+                        stringValue: YXRRSET
+                  startTimeUnixNano: "1000000"
+                  timeUnixNano: "2000000"
+              isMonotonic: true
+            unit: responses
+        scope:
+          name: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/bind9receiver
+          version: latest
