@@ -1,0 +1,43 @@
+type: dnslookup
+
+status:
+  class: receiver
+  stability:
+    development: [metrics]
+  distributions: []
+  codeowners:
+    active: [skreuzer]
+
+attributes:
+  dns.question.name:
+    description: The domain name being queried
+    type: string
+  dns.question.type:
+    description: The DNS record type being queried (e.g. A, AAAA, CNAME, MX, TXT, NS)
+    type: string
+  dns.server.address:
+    description: The DNS server address that was queried
+    type: string
+  dns.response.code:
+    description: The DNS response code (e.g. NOERROR, NXDOMAIN, SERVFAIL)
+    type: string
+
+metrics:
+  dns.lookup.duration:
+    enabled: true
+    description: Duration of the DNS lookup in seconds
+    stability:
+      level: development
+    unit: s
+    gauge:
+      value_type: double
+    attributes: [dns.question.name, dns.question.type, dns.server.address, dns.response.code]
+  dns.lookup.answers_count:
+    enabled: true
+    description: Number of answers returned by the DNS lookup
+    stability:
+      level: development
+    unit: "{answers}"
+    gauge:
+      value_type: int
+    attributes: [dns.question.name, dns.question.type, dns.server.address, dns.response.code]

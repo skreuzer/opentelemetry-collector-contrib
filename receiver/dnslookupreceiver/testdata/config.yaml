@@ -1,0 +1,14 @@
+receivers:
+  dnslookup:
+    collection_interval: 10s
+    timeout: 5s
+    queries:
+      - hostname: "example.com"
+        record_type: "A"
+        endpoints:
+          - "8.8.8.8:53"
+          - "1.1.1.1:53"
+      - hostname: "opentelemetry.io"
+        record_type: "AAAA"
+        endpoints:
+          - "8.8.8.8:53"

@@ -1,0 +1,21 @@
+type: object
+allOf:
+  - $ref: go.opentelemetry.io/collector/scraper/scraperhelper.controller_config
+  - $ref: ./internal/metadata.metrics_builder_config
+properties:
+  timeout:
+    type: string
+    default: 5s
+  queries:
+    type: array
+    items:
+      type: object
+      properties:
+        hostname:
+          type: string
+        record_type:
+          type: string
+        endpoints:
+          type: array
+          items:
+            type: string
